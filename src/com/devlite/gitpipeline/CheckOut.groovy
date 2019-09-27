@@ -2,7 +2,7 @@ package com.devlite.gitpipeline;
 import com.devlite.gitpipeline.*;
 class CheckOut implements Serializable { 
 
-  def steps:
+  def steps;
   CheckOut(steps) {
       this.steps = steps
   } 
