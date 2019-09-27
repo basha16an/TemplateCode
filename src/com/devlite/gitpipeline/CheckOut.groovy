@@ -10,7 +10,7 @@ class CheckOut implements Serializable {
   
     for ( int i=0;i<scmEngine.length;i++)
     {
-      steps.checkout Git[i]
+      steps.checkout scmEngine[i]
      }
   }
   
