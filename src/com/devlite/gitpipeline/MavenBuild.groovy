@@ -8,7 +8,7 @@ class MavenBuild implements Serializable {
   } 
   def buildAppByMaven(mavenBuildEngine){
   
-  workspace=steps.pwd();
+   def workspace=steps.pwd();
   
       if(mavenBuildEngine.buildFile==null || mavenBuildEngine.buildFile==""){
          steps.error "ERROR"
@@ -16,10 +16,10 @@ class MavenBuild implements Serializable {
      steps.sh '''
      set +x 
      cd ''' + workspace + '''
-     export JAVA_HOME='''+mavenBuildEngine.JavaHome+'''
+     export JAVA_HOME='''+ mavenBuildEngine.JavaHome+ '''
      export MAVEN_HOME=/usr/share/maven
      export PATH=$PATH:$MAVEN_HOME/bin:$JAVA_HOM/bin
-     ${MAVEN_HOME}/bin/mvn -f '''+mavenBuildEngine.buildFile+ ''' '''+ mavenBuildEngine.buildTarget
+     ${MAVEN_HOME}/bin/mvn -f '''+ mavenBuildEngine.buildFile + ''' '''+ mavenBuildEngine.buildTarget
      '''
    }
   
