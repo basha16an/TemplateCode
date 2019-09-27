@@ -19,7 +19,7 @@ class MavenBuild implements Serializable {
      export JAVA_HOME='''+ mavenBuildEngine.JavaHome+ '''
      export MAVEN_HOME=/usr/share/maven
      export PATH=$PATH:$MAVEN_HOME/bin:$JAVA_HOM/bin
-     ${MAVEN_HOME}/bin/mvn -f '''+ mavenBuildEngine.buildFile + ''' '''+ mavenBuildEngine.buildTarget
+     ${MAVEN_HOME}/bin/mvn -f '''+ mavenBuildEngine.buildFile + ''' '''+ mavenBuildEngine.buildTarget + ''' 
      '''
    }
   
