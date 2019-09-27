@@ -6,7 +6,7 @@ class SonarScan implements Serializable {
   SonarScan(steps) {
       this.steps = steps
   } 
-  def buildAppByMaven(mavenBuildEngine,URL){
+  def sonarAnalysis(mavenBuildEngine,URL){
   
    def workspace=steps.pwd();
   
