@@ -6,7 +6,7 @@ class CheckOut implements Serializable {
   CheckOut(steps) {
       this.steps = steps
   } 
-  def CheckoutModules(GitSCM  scmEngine){
+  def CheckoutModules(scmEngine){
   
     for ( int i=0;i<scmEngine.length;i++)
     {
