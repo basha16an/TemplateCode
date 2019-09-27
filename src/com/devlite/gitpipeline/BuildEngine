@@ -11,14 +11,14 @@ class BuildEngine implements Serializable {
     for ( int i=0;i<buildEngine.length;i++)
     {
       if ( buildEngine[i].model.id.contains("Auxiliary_Build_Maven")){
-	  			steps.echo "Maven Build Model"
-		  		try{
-			  		def buildObj = new com.devlite.gitpipeline.MavenBuild(steps)
-				  	buildObj.buildAppByMaven(buildEngine[i])
-				  } catch(Exception err) {
-				  	throw err;
-				  }
-			 } 
+	  	steps.echo "Maven Build Model"
+		try{
+		 		def buildObj = new com.devlite.gitpipeline.MavenBuild(steps)
+			  	buildObj.buildAppByMaven(buildEngine[i])
+		  } catch(Exception err) {
+			  	throw err;
+		  }
+	  } 
      }
   }
   
