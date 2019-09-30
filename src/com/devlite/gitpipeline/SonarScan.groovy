@@ -7,6 +7,20 @@ class SonarScan implements Serializable {
       this.steps = steps
   } 
   def sonarAnalysis(mavenBuildEngine,URL){
+  for ( int i=0;i<buildEngine.length;i++)
+    {
+      if ( buildEngine[i].model.id.contains("Auxiliary_Build_Maven")){
+	  	steps.echo "Maven Build Model"
+		   try{
+			  	performSonarScan(buildEngine[i],URL)
+		   } catch(Exception err) {
+			  	throw err;
+		  }
+	  } 
+     }
+    
+  }
+  def performSonarScan(mavenBuildEngine,URL){
   
    def workspace=steps.pwd();
   
