@@ -10,7 +10,7 @@ class UploadArtifacts implements Serializable{
   def uploadBuildArtifacts(buildEngine,URL){
   
     for(int i=0;i<buildEngine.length;i++){
-      if(buildEngine[i].model.id.conatins("Auxiliary_Build_Maven")){
+      if(buildEngine[i].model.id.contains("Auxiliary_Build_Maven")){
       try {
           uploadMavenBuildArtifacts(buildEngine[i],URL);
           }catch(Exception err){
