@@ -1,6 +1,6 @@
 package com.devlite.gitpipeline;
 import  com.devlite.gitpipeline.*;
-class UploadArtifacts implements serializable{
+class UploadArtifacts implements Serializable{
 
   def steps;
   def UploadArtifacts(steps)
