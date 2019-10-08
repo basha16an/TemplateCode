@@ -35,11 +35,16 @@ class FortifyScan implements Serializable {
                  export JAVA_HOME='''+ mavenBuildEngine.JavaHome+ '''
                  export MAVEN_HOME=/usr/share/maven
                  export PATH=$PATH:$MAVEN_HOME/bin:$JAVA_HOM/bin:/opt/Fortify/Fortify_SCA_and_Apps_18.20/bin
+		 echo $JAVA_HOME
+		 
+		 '''
+	  /*
                  ${MAVEN_HOME}/bin/mvn com.fortify.sca.plugins.maven:sca-maven-plugin:18.20:clean -f '''+ mavenBuildEngine.buildFile + '''
                  sourceanalyzer -b '''+mavenBuildEngine.repoName + ''' mvn package
                  sourceanalyzer -b '''+mavenBuildEngine.repoName + '''  -scan -f '''+fprScanFilename+ '''
                  BIRTReportGenerator  -template  "DISA STIG" -source '''+fprScanFilename+ ''' -output '''+ pdfScanFilename+ ''' -format PDF -showSuppressed --Version "DISA STIG 3.9" -UseFortifyPriorityOrder
                  '''
+   */
    }
   
 }
