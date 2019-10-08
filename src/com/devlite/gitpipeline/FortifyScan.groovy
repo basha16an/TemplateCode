@@ -12,7 +12,7 @@ class FortifyScan implements Serializable {
       if ( buildEngine[i].model.id.contains("Auxiliary_Build_Maven")){
 	  	steps.echo "Maven Build Model"
 		   try{
-			  	performMavenScan(buildEngine[i])
+			  	performFortifyScan(buildEngine[i])
 		   } catch(Exception err) {
 			  	throw err;
 		  }
@@ -20,7 +20,7 @@ class FortifyScan implements Serializable {
      }
     
   }
-  def performMavenScan(mavenBuildEngine){
+  def performFortifyScan(mavenBuildEngine){
   
    def workspace=steps.pwd();
   def fprScanFilename=mavenBuildEngine.repoName+".fpr"
