@@ -30,8 +30,8 @@ class AnsibleDeploy implements Serializable {
          steps.error "ERROR"
      }
 	  def githuburl = "https://github.com/wipropoc/helloworld.git"
-          def urlFields=githuburl.split('/');
-	// println (urlFields(urlFields.length))
+          def urlFields=githuburl.tokenize('/');
+	  println (urlFields(countTokens()-1))
 	 // for (String basha: Repo)
 	    //      println (basha)
 		//  def Reponames=Repo.split('.');
