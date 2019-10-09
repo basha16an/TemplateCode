@@ -30,12 +30,12 @@ class FortifyScan implements Serializable {
      }
      
       steps.sh '''
-                set +x 
+     set +x 
      cd ''' + workspace + '''
      export JAVA_HOME='''+ mavenBuildEngine.JavaHome+ '''
-     export JRE_HOME=$JAVA_HOME/jre
      export MAVEN_HOME=/usr/share/maven
-     export PATH=$PATH:$MAVEN_HOME/bin:$JAVA_HOME/bin:/opt/Fortify/Fortify_SCA_and_Apps_18.20/bin
+     export PATH=$PATH:$MAVEN_HOME/bin:$JAVA_HOME/bin
+     #export PATH=$PATH:$MAVEN_HOME/bin:$JAVA_HOME/bin:/opt/Fortify/Fortify_SCA_and_Apps_18.20/bin
      ${MAVEN_HOME}/bin/mvn com.fortify.sca.plugins.maven:sca-maven-plugin:18.20:clean -f '''+mavenBuildEngine.buildFile+'''
         '''
 	  /*
