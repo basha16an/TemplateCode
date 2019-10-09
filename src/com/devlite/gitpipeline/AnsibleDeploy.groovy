@@ -29,9 +29,18 @@ class AnsibleDeploy implements Serializable {
    if(mavenBuildEngine.buildFile==null || mavenBuildEngine.buildFile==""){
          steps.error "ERROR"
      }
-     def projectconfig = new XmlSlurper().parse(new File(workspace+"/"+mavenBuildEngine.buildFile)) ;
-   def pomversion = projectconfig.version.toString()
-	  println("Pom Version:" + pomversion)
+	  def githuburl = "https://github.com/wipropoc/helloworld.git"
+          def urlFields=githuburl.split('/');
+	  def Repo=urlFields(urlFields.size-1);
+	  def Reponames=Repo.split('.');
+	  def Reponame=Reponames(0);
+	  println ("Reponame" +Reponame)
+	  
+	  //step.sh '''echo "https://github.com/wipropoc/helloworld.git" | awk -F "/" '{print $NF}' | awk -F "." '{print $1}'
+    // def projectconfig = new XmlSlurper().parse(new File(workspace+"/"+mavenBuildEngine.buildFile)) ;
+   //def pomversion = projectconfig.version.toString()
+	//
+	//  println("Pom Version:" + pomversion)
      
    }
   
