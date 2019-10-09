@@ -33,7 +33,7 @@ class AnsibleDeploy implements Serializable {
             println ansible_output.Application_END_URL
       //      Application_deployed_url=ansible_output.Application_END_URL
       
-       }
+       
        
 	//  def githuburl = "https://github.com/wipropoc/helloworld.git"
           //def urlFields=githuburl.tokenize('/');
