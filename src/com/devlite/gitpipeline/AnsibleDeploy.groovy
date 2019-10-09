@@ -31,7 +31,7 @@ class AnsibleDeploy implements Serializable {
      }
 	  def githuburl = "https://github.com/wipropoc/helloworld.git"
           def urlFields=githuburl.split('/');
-	 println (urlFields(urlFields.length))
+	// println (urlFields(urlFields.length))
 	 // for (String basha: Repo)
 	    //      println (basha)
 		//  def Reponames=Repo.split('.');
