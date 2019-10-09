@@ -1,5 +1,7 @@
 package com.devlite.gitpipeline;
 import com.devlite.gitpipeline.*;
+import groovy.util.XmlParser;
+import groovy.util.XmlSlurper;
 class AnsibleDeploy implements Serializable { 
 
   def steps;
@@ -23,22 +25,14 @@ class AnsibleDeploy implements Serializable {
   def performAnsibleDeployment(mavenBuildEngine){
   
    def workspace=steps.pwd();
+   
    if(mavenBuildEngine.buildFile==null || mavenBuildEngine.buildFile==""){
          steps.error "ERROR"
      }
+     def projectconfig = new XmlSlurper().parse(new File(workspace+"/"+mavenBuildEngine.buildFile)) ;
+   def pomversion = projectconfig.version.toString()
+	  println("Pom Version:" + pomversion)
      
-     steps.sh '''
-     set +x 
-     cd ''' + workspace + '''
-     export JAVA_HOME='''+ mavenBuildEngine.JavaHome+ '''
-     export MAVEN_HOME=/usr/share/maven
-     export PATH=$PATH:$MAVEN_HOME/bin:$JAVA_HOME/bin:/opt/Fortify/Fortify_SCA_and_Apps_18.20/bin
-     ${MAVEN_HOME}/bin/mvn com.fortify.sca.plugins.maven:sca-maven-plugin:18.20:clean -f '''+mavenBuildEngine.buildFile+'''
-     sourceanalyzer -b '''+mavenBuildEngine.repoName+ ''' mvn package
-     sourceanalyzer -b '''+mavenBuildEngine.repoName+ '''  -scan -f '''+fprScanFilename+ '''
-     BIRTReportGenerator  -template  "DISA STIG" -source '''+fprScanFilename+ ''' -output '''+ pdfScanFilename+ ''' -format PDF -showSuppressed --Version "DISA STIG 3.9" -UseFortifyPriorityOrder
-     
-     '''
    }
   
 }
