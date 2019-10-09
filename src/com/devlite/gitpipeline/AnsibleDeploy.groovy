@@ -29,9 +29,15 @@ class AnsibleDeploy implements Serializable {
    if(mavenBuildEngine.buildFile==null || mavenBuildEngine.buildFile==""){
          steps.error "ERROR"
      }
-	  def githuburl = "https://github.com/wipropoc/helloworld.git"
-          def urlFields=githuburl.tokenize('/');
-	  println (urlFields(countTokens()-1))
+	  def ansible_output=steps.script.ansibleTower credential: '', extraVars:' \n    artifact_version: ${build_artifact_version}  \n         instance_name: ${instance_name}' , importTowerLogs: true, importWorkflowChildLogs: true, inventory: '', jobTags: '', jobTemplate: 'VMCloudbeesDeploy_HelloWorld', jobType: 'run', limit: '', removeColor: true, skipJobTags: '', templateType: 'workflow', throwExceptionWhenFail: true, towerServer: 'AnsibleTower', verbose: true
+            println ansible_output.Application_END_URL
+      //      Application_deployed_url=ansible_output.Application_END_URL
+      
+       }
+       
+	//  def githuburl = "https://github.com/wipropoc/helloworld.git"
+          //def urlFields=githuburl.tokenize('/');
+	  //println (urlFields(countTokens()-1))
 	 // for (String basha: Repo)
 	    //      println (basha)
 		//  def Reponames=Repo.split('.');
