@@ -38,6 +38,5 @@ class FortifyScan implements Serializable {
      ${MAVEN_HOME}/bin/mvn -f '''+ mavenBuildEngine.buildFile + ''' '''+ mavenBuildEngine.buildTarget + ''' 
      '''
    }
-   }
   
 }
