@@ -31,10 +31,12 @@ class AnsibleDeploy implements Serializable {
      }
 	  def githuburl = "https://github.com/wipropoc/helloworld.git"
           def urlFields=githuburl.split('/');
-	  def Repo=urlFields(urlFields.length-1);
-	  def Reponames=Repo.split('.');
-	  def Reponame=Reponames(0);
-	  println ("Reponame" +Reponame)
+	 println (urlFields(urlFields.length))
+	 // for (String basha: Repo)
+	    //      println (basha)
+		//  def Reponames=Repo.split('.');
+	  //def Reponame=Reponames(0);
+	  //println ("Reponame" +Reponame)
 	  
 	  //step.sh '''echo "https://github.com/wipropoc/helloworld.git" | awk -F "/" '{print $NF}' | awk -F "." '{print $1}'
     // def projectconfig = new XmlSlurper().parse(new File(workspace+"/"+mavenBuildEngine.buildFile)) ;
