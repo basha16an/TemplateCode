@@ -29,7 +29,8 @@ class AnsibleDeploy implements Serializable {
    if(mavenBuildEngine.buildFile==null || mavenBuildEngine.buildFile==""){
          steps.error "ERROR"
      }
-	  def ansible_output=steps.ansibleTower credential: '', extraVars:' \n    artifact_version: ${build_artifact_version}  \n         instance_name: ${instance_name}' , importTowerLogs: true, importWorkflowChildLogs: true, inventory: '', jobTags: '', jobTemplate: 'VMCloudbeesDeploy_HelloWorld', jobType: 'run', limit: '', removeColor: true, skipJobTags: '', templateType: 'workflow', throwExceptionWhenFail: true, towerServer: 'AnsibleTower', verbose: true
+	  def ansible_output=steps.ansibleTower credential: '', extraVars: '''artifact_version: ${build_artifact_version} 
+	  instance_name: ${instance_name}''' , importTowerLogs: true, importWorkflowChildLogs: true, inventory: '', jobTags: '', jobTemplate: 'VMCloudbeesDeploy_HelloWorld', jobType: 'run', limit: '', removeColor: true, skipJobTags: '', templateType: 'workflow', throwExceptionWhenFail: true, towerServer: 'AnsibleTower', verbose: true
             println ansible_output.Application_END_URL
       //      Application_deployed_url=ansible_output.Application_END_URL
       
