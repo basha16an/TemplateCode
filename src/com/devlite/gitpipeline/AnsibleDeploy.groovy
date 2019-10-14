@@ -39,7 +39,7 @@ class AnsibleDeploy implements Serializable {
 	  def project = new XmlSlurper().parse(new File("pom.xml"))
        def pomv = project.version.toString()
 	  println pomv */
-	  def ansible_output=steps.ansibleTower async: true, credential: '', extraVars: '''artifact_version: 5.2
+	  def ansible_output=steps.ansibleTower async: false, credential: '', extraVars: '''artifact_version: 5.2
 host_group: 18.139.219.62
 instance_name: testing''', importTowerLogs: true, importWorkflowChildLogs: true, inventory: '', jobTags: '', jobTemplate: 'AWS_Cloudbees_VM_App_Deploy', jobType: 'run', limit: '', removeColor: true, skipJobTags: '', templateType: 'job', throwExceptionWhenFail: true, towerServer: 'AnsibleTower', verbose: true
 	  println ansible_output.Application_END_URL
