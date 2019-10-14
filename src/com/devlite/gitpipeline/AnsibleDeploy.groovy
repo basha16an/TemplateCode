@@ -45,7 +45,7 @@ instance_name: testing''', importTowerLogs: true, importWorkflowChildLogs: true,
 	  */
 	  
 	 def ansible_output=steps.ansibleTower async: false, credential: '', extraVars: '''artifact_version: 5.2
-instance_name: testing''', importTowerLogs: true, importWorkflowChildLogs: true, inventory: '', jobTags: '', jobTemplate: 'AWS_Cloudbees_VM_App_Deploy', jobType: 'run', limit: '', removeColor: true, skipJobTags: '', templateType: 'workflow', throwExceptionWhenFail: true, towerServer: 'AnsibleTower', verbose: true
+instance_name: testing''', importTowerLogs: true, importWorkflowChildLogs: true, inventory: '', jobTags: '', jobTemplate: 'VMCloudbeesDeploy_HelloWorld', jobType: 'run', limit: '', removeColor: true, skipJobTags: '', templateType: 'workflow', throwExceptionWhenFail: true, towerServer: 'AnsibleTower', verbose: true
 	  println ansible_output.Application_END_URL
 	   // ''' artifact_version: ${build_artifact_version}
 	//  instance_name: ${instance_name} '''
