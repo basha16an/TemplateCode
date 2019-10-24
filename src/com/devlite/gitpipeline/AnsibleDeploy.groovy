@@ -36,7 +36,7 @@ class AnsibleDeploy implements Serializable {
 	    
 	  println workspace
 	  */
-	  def project = new XmlSlurper().parse(new File("pom.xml"))
+	  def project = new XmlSlurper().parse(new File(workspace +"/pom.xml"))
        def pomversion = project.version.toString()
 	  println project.version.toString();
 	  println project.groupid.toString();
