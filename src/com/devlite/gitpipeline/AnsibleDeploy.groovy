@@ -36,7 +36,7 @@ class AnsibleDeploy implements Serializable {
 	    
 	  println workspace
 	  */
-	  def file = readFile(workspace +"/pom.xml")
+	  def file = steps.readFile(workspace +"/pom.xml")
   //def project = new XmlSlurper().parseText(file)
   //return project.version.text()
 	  def project = new XmlSlurper().parseText(file)
