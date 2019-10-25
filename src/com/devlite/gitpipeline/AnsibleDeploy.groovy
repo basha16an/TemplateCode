@@ -42,8 +42,9 @@ class AnsibleDeploy implements Serializable {
 	  def project = new XmlSlurper().parseText(file)
        def pomversion = project.version.toString()
 	  println project.version.toString();
-	  println project.groupid.toString();
-	  println project.artifactpid.toString();
+	  println (project.groupid.toString());
+	  println project.artifactpd
+	  println ("hi")
 	 /*
 	  
 	  def ansible_output=steps.ansibleTower async: false, credential: '', extraVars: '''artifact_version: 5.2
