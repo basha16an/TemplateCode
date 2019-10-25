@@ -40,10 +40,10 @@ class AnsibleDeploy implements Serializable {
   //def project = new XmlSlurper().parseText(file)
   //return project.version.text()
 	  def project = new XmlSlurper().parseText(file)
-       def pomversion = project.version.toString()
+          def pomversion = project.version.toString()
 	  steps.echo "Pom version " +project.version.toString()
-	  steps.echo  "Group IP:"+ project.groupid.toString()
-	  steps.echo "Artifact ID:" +project.artifactid.toString()	 /*
+	  steps.echo  "Group IP:"+ project.groupId.toString()
+	  steps.echo "Artifact ID:" +project.artifactId.toString()	 /*
 	  
 	  def ansible_output=steps.ansibleTower async: false, credential: '', extraVars: '''artifact_version: 5.2
 host_group: 18.139.219.62
