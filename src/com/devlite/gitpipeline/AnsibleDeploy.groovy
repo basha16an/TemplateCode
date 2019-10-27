@@ -47,7 +47,7 @@ class AnsibleDeploy implements Serializable {
 	  steps.echo "Maven Artifact ID: "+project.artifactId.toString()
 	  def Parameters="""
 	  artifact_version: 0
-instance_name: ${instance_name}
+instance_name: test
 dev_instance_count: ${DevInstances}
 test_instance_count: ${TestInstances}
 prod_instance_count: ${ProdInstances}
