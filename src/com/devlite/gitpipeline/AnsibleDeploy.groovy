@@ -41,9 +41,9 @@ class AnsibleDeploy implements Serializable {
           def pomversion =project.version.toString()
 	  def pomartifactId=project.artifactId.toString()
 	  def pomgroupId=project.groupId.toString()
-	  steps.echo "Maven Pom version: " +project.version.toString()
-	  steps.echo  "Maven Group ID: "+ project.groupId.toString()
-	  steps.echo "Maven Artifact ID: " +project.artifactId.toString()
+	  steps.echo "Maven Pom version: "+project.version.toString()
+	  steps.echo "Maven Group ID: "+project.groupId.toString()
+	  steps.echo "Maven Artifact ID: "+project.artifactId.toString()
 	  try {
 	 // steps.ansibleTower async: false, credential: '', extraVars: '', importTowerLogs: true, importWorkflowChildLogs: true, inventory: '', jobTags: '', jobTemplate: 'DEVLITE_Application_Deploy', jobType: 'run', limit: '', removeColor: true, skipJobTags: '', templateType: 'job', throwExceptionWhenFail: true, towerServer: 'AnsibleTower', verbose: true
 		  def ansible_output=steps.ansibleTower async: false, credential: '', extraVars: '''artifact_version: ${build_artifact_version}
@@ -57,7 +57,7 @@ pomartifactId: '''+pomartifactId+'''
 ''', importTowerLogs: true, importWorkflowChildLogs: true, inventory: '', jobTags: '', jobTemplate: 'DEVLITE_Workflow_Cloudbees', jobType: 'run', limit: '', removeColor: true, skipJobTags: '', templateType: 'workflow', throwExceptionWhenFail: true, towerServer: 'AnsibleTower', verbose: true
 		  
 		  } catch (err) {
-            echo "Error when test Unit Test"
+            steps.echo "Error when test Unit Test"
             throw err
         }
 	  /*
