@@ -7,7 +7,7 @@ class AnsibleDeploy implements Serializable {
   def steps;
   def params;
   def currentBuild;
-  AnsibleDeploy(steps,params) {
+  AnsibleDeploy(steps,params,currentBuild) {
       this.steps = steps
       this.params = params
       this.currentBuild=currentBuild
