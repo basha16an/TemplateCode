@@ -2,12 +2,12 @@ package com.devlite.gitpipeline;
 import com.devlite.gitpipeline.*;
 import groovy.util.XmlParser;
 import groovy.util.XmlSlurper;
-class AnsibleDeploy implements Serializable { 
+class NotifyMail implements Serializable { 
 
   def steps;
   def params;
   def currentBuild;
-  AnsibleDeploy(steps,params,currentBuild) {
+  NotifyMail(steps,params,currentBuild) {
       this.steps = steps
       this.params = params
       this.currentBuild=currentBuild
