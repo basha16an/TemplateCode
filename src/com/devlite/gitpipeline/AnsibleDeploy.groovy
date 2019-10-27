@@ -37,20 +37,13 @@ class AnsibleDeploy implements Serializable {
 	  println workspace
 	  */
 	  def file = steps.readFile(workspace +"/pom.xml")
-  //def project = new XmlSlurper().parseText(file)
-  /* '' artifact_version: ${build_artifact_version}  
-instance_name: ${instance_name} 
-dev_instance_count: ${DevInstances}
-test_instance_count: ${TestInstances}
-prod_instance_count: ${ProdInstances} '''
-
-return project.version.text()
-*/
-/* def project = new XmlSlurper().parseText(file)
-          def pomversion = project.version.toString()
-	  steps.echo "Pom version " +project.version.toString()
-	  steps.echo  "Group IP:"+ project.groupId.toString()
-	  steps.echo "Artifact ID:" +project.artifactId.toString()
+          def project = new XmlSlurper().parseText(file)
+          def pomversion =project.version.toString()
+	  def pomartifactId=project.artifactId.toString()
+	  def pomgroupId=project.groupId.toString()
+	  steps.echo "Maven Pom version: " +project.version.toString()
+	  steps.echo  "Maven Group ID: "+ project.groupId.toString()
+	  steps.echo "Maven Artifact ID: " +project.artifactId.toString()
 	  */
 	//  def ansible_output=steps.ansibleTower async: false, credential: '', extraVars: '', importTowerLogs: true, importWorkflowChildLogs: true, inventory: '', jobTags: '', jobTemplate: 'DEVLITE_Workflow_Cloudbees', jobType: 'run', limit: '', removeColor: true, skipJobTags: '', templateType: 'workflow', throwExceptionWhenFail: true, towerServer: 'AnsibleTower', verbose: true
 	  
@@ -63,7 +56,11 @@ return project.version.text()
 instance_name: ${instance_name}
 dev_instance_count: ${DevInstances}
 test_instance_count: ${TestInstances}
-prod_instance_count: ${ProdIntances}''', importTowerLogs: true, importWorkflowChildLogs: true, inventory: '', jobTags: '', jobTemplate: 'DEVLITE_Workflow_Cloudbees', jobType: 'run', limit: '', removeColor: true, skipJobTags: '', templateType: 'workflow', throwExceptionWhenFail: true, towerServer: 'AnsibleTower', verbose: true
+prod_instance_count: ${ProdInstances}
+pomversion: '''+pomversion+'''
+pomgroupId: '''+pomgroupId+'''
+pomartifactId: '''+pomartifactId+'''
+''', importTowerLogs: true, importWorkflowChildLogs: true, inventory: '', jobTags: '', jobTemplate: 'DEVLITE_Workflow_Cloudbees', jobType: 'run', limit: '', removeColor: true, skipJobTags: '', templateType: 'workflow', throwExceptionWhenFail: true, towerServer: 'AnsibleTower', verbose: true
 		  
 		  } catch (err) {
             echo "Error when test Unit Test"
