@@ -4,9 +4,10 @@ import groovy.util.XmlParser;
 import groovy.util.XmlSlurper;
 class AnsibleDeploy implements Serializable { 
 
-  def steps;
+  def steps,params;
   AnsibleDeploy(steps) {
       this.steps = steps
+      this.params = params
   } 
   def deployusingAnsible(buildEngine){
   for ( int i=0;i<buildEngine.length;i++)
@@ -37,6 +38,7 @@ class AnsibleDeploy implements Serializable {
 	  println workspace
 	  */
 	//  ${build_artifact_version}
+	  steps.echo params.instance_name
 	  def file = steps.readFile(workspace +"/pom.xml")
           def project = new XmlSlurper().parseText(file)
           def pomversion =project.version.toString()
