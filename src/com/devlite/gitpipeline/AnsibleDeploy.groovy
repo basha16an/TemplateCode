@@ -42,21 +42,20 @@ class AnsibleDeploy implements Serializable {
 	  steps.echo params.instance_name
 	  def file = steps.readFile(workspace +"/pom.xml")
           def project = new XmlSlurper().parseText(file)
-          def pomversion =project.version.toString()
+          def artifact_version=project.version.toString()
 	  def pomartifactId=project.artifactId.toString()
 	  def pomgroupId=project.groupId.toString()
 	  steps.echo "Maven Pom version: "+project.version.toString()
 	  steps.echo "Maven Group ID: "+project.groupId.toString()
 	  steps.echo "Maven Artifact ID: "+project.artifactId.toString()
 	  def Parameters="""
-	  artifact_version: 0
-instance_name: test
-dev_instance_count: 0
-test_instance_count: 0
-prod_instance_count: 0
-pomversion: """+ pomversion + """
-pomgroupId: """+ pomgroupId + """
-pomartifactId: """+pomartifactId + """
+	  artifact_version: """+ artifact_version + """
+	  instance_name: """+ params.instance_name + """
+	  dev_instance_count: """ + params.DevInstances + """
+	  test_instance_count: """ + TestInstances + """
+	  prod_instance_count: """ + ProdInstances + """
+	  pomgroupId: """+ pomgroupId + """
+	  pomartifactId: """+pomartifactId + """
 	  """
 	  steps.echo Parameters
 	  try {
