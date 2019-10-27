@@ -9,7 +9,9 @@ class AnsibleDeploy implements Serializable {
   AnsibleDeploy(steps,params) {
       this.steps = steps
       this.params = params
-  } 
+  }
+	
+  @NonCPS
   def deployusingAnsible(buildEngine){
   for ( int i=0;i<buildEngine.length;i++)
     {
