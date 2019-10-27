@@ -4,8 +4,9 @@ import groovy.util.XmlParser;
 import groovy.util.XmlSlurper;
 class AnsibleDeploy implements Serializable { 
 
-  def steps,params;
-  AnsibleDeploy(steps) {
+  def steps;
+  def params;
+  AnsibleDeploy(steps,params) {
       this.steps = steps
       this.params = params
   } 
