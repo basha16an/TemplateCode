@@ -44,12 +44,6 @@ class AnsibleDeploy implements Serializable {
 	  steps.echo "Maven Pom version: " +project.version.toString()
 	  steps.echo  "Maven Group ID: "+ project.groupId.toString()
 	  steps.echo "Maven Artifact ID: " +project.artifactId.toString()
-	  */
-	//  def ansible_output=steps.ansibleTower async: false, credential: '', extraVars: '', importTowerLogs: true, importWorkflowChildLogs: true, inventory: '', jobTags: '', jobTemplate: 'DEVLITE_Workflow_Cloudbees', jobType: 'run', limit: '', removeColor: true, skipJobTags: '', templateType: 'workflow', throwExceptionWhenFail: true, towerServer: 'AnsibleTower', verbose: true
-	  
-	  // def dev_instance_ENDURL=ansible_output.dev_instance_ENDURL
-         //   def test_instance_ENDURL=ansible_output.test_instance_ENDURL
-	  //steps.echo dev_instance_ENDURL
 	  try {
 	 // steps.ansibleTower async: false, credential: '', extraVars: '', importTowerLogs: true, importWorkflowChildLogs: true, inventory: '', jobTags: '', jobTemplate: 'DEVLITE_Application_Deploy', jobType: 'run', limit: '', removeColor: true, skipJobTags: '', templateType: 'job', throwExceptionWhenFail: true, towerServer: 'AnsibleTower', verbose: true
 		  def ansible_output=steps.ansibleTower async: false, credential: '', extraVars: '''artifact_version: ${build_artifact_version}
