@@ -26,6 +26,7 @@ class AnsibleDeploy implements Serializable {
      }
     
   }
+  @NonCPS
   def performAnsibleDeployment(mavenBuildEngine){
   
    def workspace=steps.pwd();
