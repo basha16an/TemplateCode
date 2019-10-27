@@ -46,11 +46,12 @@ prod_instance_count: ${ProdInstances} '''
 
 return project.version.text()
 */
-def project = new XmlSlurper().parseText(file)
+/* def project = new XmlSlurper().parseText(file)
           def pomversion = project.version.toString()
 	  steps.echo "Pom version " +project.version.toString()
 	  steps.echo  "Group IP:"+ project.groupId.toString()
 	  steps.echo "Artifact ID:" +project.artifactId.toString()
+	  */
 	//  def ansible_output=steps.ansibleTower async: false, credential: '', extraVars: '', importTowerLogs: true, importWorkflowChildLogs: true, inventory: '', jobTags: '', jobTemplate: 'DEVLITE_Workflow_Cloudbees', jobType: 'run', limit: '', removeColor: true, skipJobTags: '', templateType: 'workflow', throwExceptionWhenFail: true, towerServer: 'AnsibleTower', verbose: true
 	  
 	  // def dev_instance_ENDURL=ansible_output.dev_instance_ENDURL
