@@ -57,7 +57,12 @@ return project.version.text()
 	  // def dev_instance_ENDURL=ansible_output.dev_instance_ENDURL
          //   def test_instance_ENDURL=ansible_output.test_instance_ENDURL
 	  //steps.echo dev_instance_ENDURL
+	  try {
 	  steps.ansibleTower async: false, credential: '', extraVars: '', importTowerLogs: true, importWorkflowChildLogs: true, inventory: '', jobTags: '', jobTemplate: 'DEVLITE_Application_Deploy', jobType: 'run', limit: '', removeColor: true, skipJobTags: '', templateType: 'job', throwExceptionWhenFail: true, towerServer: 'AnsibleTower', verbose: true
+		  } catch (err) {
+            echo "Error when test Unit Test"
+            throw err
+        }
 	  /*
 	  
 	  def ansible_output=steps.ansibleTower async: false, credential: '', extraVars: '''artifact_version: 5.2
