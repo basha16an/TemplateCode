@@ -48,9 +48,9 @@ class AnsibleDeploy implements Serializable {
 	  def Parameters="""
 	  artifact_version: 0
 instance_name: test
-dev_instance_count: ${DevInstances}
-test_instance_count: ${TestInstances}
-prod_instance_count: ${ProdInstances}
+dev_instance_count: 0
+test_instance_count: 0
+prod_instance_count: 0
 pomversion: """+ pomversion + """
 pomgroupId: """+ pomgroupId + """
 pomartifactId: """+pomartifactId + """
