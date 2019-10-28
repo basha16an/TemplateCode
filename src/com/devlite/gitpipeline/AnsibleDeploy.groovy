@@ -31,7 +31,7 @@ class AnsibleDeploy implements Serializable {
   	 if(mavenBuildEngine.buildFile==null || mavenBuildEngine.buildFile==""){
          steps.error "ERROR"
      	}
-	  /*
+	  
 	  steps.echo params.instance_name
 	  def file = steps.readFile(workspace +"/pom.xml")
           def project = new XmlSlurper().parseText(file)
@@ -51,7 +51,7 @@ class AnsibleDeploy implements Serializable {
 	  pomartifactId: """+pomartifactId + """
 	  """
 	  steps.echo Parameters 
-	  */
+	  
 	  try {
 		  
 		  steps.ansibleTower async: false, credential: '', extraVars: '', importTowerLogs: true, importWorkflowChildLogs: true, inventory: '', jobTags: '', jobTemplate: 'DEVLITE_Application_Deploy', jobType: 'run', limit: '', removeColor: false, skipJobTags: '', templateType: 'job', throwExceptionWhenFail: true, towerServer: 'AnsibleTower', verbose: true
