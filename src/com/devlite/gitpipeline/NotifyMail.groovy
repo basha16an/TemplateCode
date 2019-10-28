@@ -14,7 +14,7 @@ class NotifyMail implements Serializable {
   }
   def sendMail(){
   
-   steps.emailext subject: 'The HelloWorld App - Build Status: $BUILD_DISPLAY_NAME has Failed'
+   steps.emailext subject: 'The HelloWorld App - Build Status: $BUILD_DISPLAY_NAME has Failed' , 
    body: '''
     Hi All,
   
