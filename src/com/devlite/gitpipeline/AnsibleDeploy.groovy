@@ -31,16 +31,16 @@ class AnsibleDeploy implements Serializable {
   	 if(mavenBuildEngine.buildFile==null || mavenBuildEngine.buildFile==""){
          steps.error "ERROR"
      	}
-	  /*
+	  
 	  steps.echo params.instance_name
 	  def file = steps.readFile(workspace +"/pom.xml")
           def project = new XmlSlurper().parseText(file)
-          def artifact_version=project.version.toString()
-	  def pomartifactId=project.artifactId.toString()
-	  def pomgroupId=project.groupId.toString()
-	  steps.echo "Maven Pom version: "+project.version.toString()
-	  steps.echo "Maven Group ID: "+project.groupId.toString()
-	  steps.echo "Maven Artifact ID: "+project.artifactId.toString()
+          def artifact_version=project.version //toString()
+	  def pomartifactId=project.artifactId //toString()
+	  def pomgroupId=project.groupId //toString()
+	  steps.echo "Maven Pom version: "+project.version //toString()
+	  steps.echo "Maven Group ID: "+project.groupId //toString()
+	  steps.echo "Maven Artifact ID: "+project.artifactId //toString()
 	  def Parameters="""
 	  artifact_version: """+ artifact_version + """
 	  instance_name: """+ params.instance_name + """
@@ -51,7 +51,7 @@ class AnsibleDeploy implements Serializable {
 	  pomartifactId: """+pomartifactId + """
 	  """
 	  steps.echo Parameters 
-	  */
+	  
 	  try {
 		  
 		  steps.ansibleTower async: false, credential: '', extraVars: '', importTowerLogs: true, importWorkflowChildLogs: true, inventory: '', jobTags: '', jobTemplate: 'DEVLITE_Application_Deploy', jobType: 'run', limit: '', removeColor: false, skipJobTags: '', templateType: 'job', throwExceptionWhenFail: true, towerServer: 'AnsibleTower', verbose: true
