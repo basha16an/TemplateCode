@@ -85,7 +85,7 @@ pomartifactId: '''+pomartifactId+'''
 	
 	steps.echo "TEST URL:" + env.test_instance_ENDURL
 	steps.echo "PROD URL:" + env.prod_instance_ENDURL */
-	  steps.echo "DEV URL :" + env.dev_instance_ENDURL
+	  steps.echo "DEV URL :" + dev_instance_ENDURL
 	 
 	
 	
