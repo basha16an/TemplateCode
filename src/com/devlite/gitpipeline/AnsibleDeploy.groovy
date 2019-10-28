@@ -26,7 +26,7 @@ class AnsibleDeploy implements Serializable {
      }
     
   }
-  
+  @NonCPS
   def performAnsibleDeployment(mavenBuildEngine){
      	def workspace=steps.pwd();
   	 if(mavenBuildEngine.buildFile==null || mavenBuildEngine.buildFile==""){
@@ -35,7 +35,7 @@ class AnsibleDeploy implements Serializable {
 	  
 	  steps.echo params.instance_name
 	  def file = steps.readFile(workspace +"/pom.xml")
-         def project = new XmlSlurper().parseText(file)
+          def project = new XmlSlurper().parseText(file)
           def artifact_version=project.version.toString()
 	  def pomartifactId=project.artifactId.toString()
 	  def pomgroupId=project.groupId //toString()
