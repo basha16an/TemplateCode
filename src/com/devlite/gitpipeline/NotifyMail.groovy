@@ -7,7 +7,7 @@ class NotifyMail implements Serializable {
   def steps;
   def params;
   def currentBuild;
-  NotifyMail(steps,params,currentBuild) {
+  NotifyMail(steps,params) {
       this.steps = steps
       this.params = params
       this.currentBuild=currentBuild
