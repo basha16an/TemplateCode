@@ -37,8 +37,7 @@ class NotifyMail implements Serializable {
 	      ProdInstances   = ProdInstances	
 	      MAILIDs		      = MAILIDs	
   Thanks,
-  Devops Team ''' ,
-                        replyTo: 'no-reply@wipro-poc.com',
+  Devops Team ''', replyTo: 'no-reply@wipro-poc.com',
                         from:'no-reply@wipro-poc.com',
                         to: params.MAILIDs,
                         attachLog:'true'
