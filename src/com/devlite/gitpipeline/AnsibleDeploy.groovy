@@ -37,8 +37,8 @@ class AnsibleDeploy implements Serializable {
 	  def file = steps.readFile(workspace +"/pom.xml")
 	  
           //def project = new XmlSlurper().parseText(file)
-	  def list = new XmlParser().parseText(file.toString()) 
-/*
+	  def project = new XmlParser().parseText(file.toString()) 
+
 	  
           def artifact_version=project.version.toString()
 	  def pomartifactId=project.artifactId.toString()
