@@ -57,7 +57,7 @@ class AnsibleDeploy implements Serializable {
 	  pomartifactId: """+pomartifactId + """
 	  """
 	  steps.echo Parameters 
-	  steps.echo "hello"  */
+	  steps.echo "hello"  
 	  
 	  	  steps.ansibleTower async: false, credential: '', extraVars: '', importTowerLogs: true, importWorkflowChildLogs: true, inventory: '', jobTags: '', jobTemplate: 'DEVLITE_Application_Deploy', jobType: 'run', limit: '', removeColor: false, skipJobTags: '', templateType: 'job', throwExceptionWhenFail: true, towerServer: 'AnsibleTower', verbose: true
 	 
