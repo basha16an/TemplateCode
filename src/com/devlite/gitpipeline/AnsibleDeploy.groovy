@@ -38,8 +38,10 @@ class AnsibleDeploy implements Serializable {
 	  
           //def project = new XmlSlurper().parseText(file)
 	  def project = new XmlParser().parseText(file.toString()) 
-
-	  
+	  def dev_instance_count=params.DevInstances
+	  def test_instance_count=params.TestInstances
+	  def post_instance_count=params.Prodnstances
+	  def instance_name=params.instance_name
           def artifact_version=project.version.text()
 	  def pomartifactId=project.artifactId.text().toString()
 	  def pomgroupId=project.groupId.text().toString()
@@ -59,7 +61,7 @@ class AnsibleDeploy implements Serializable {
 	  steps.echo Parameters 
 	  steps.ansibleTower async: false, credential: '', extraVars: 
 '''
-instance_name: '''+params.instance_name+'''
+instance_name: '''+instance_name+'''
 artifact_version: '''+artifact_version+'''
 dev_instance_count: '''+dev_instance_count+'''
 test_instance_count: '''+test_instance_count+'''
