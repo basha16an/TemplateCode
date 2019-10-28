@@ -59,7 +59,7 @@ class AnsibleDeploy implements Serializable {
 	  steps.echo Parameters 
 	  steps.ansibleTower async: false, credential: '', extraVars: 
 '''
-instance_name: '''+instance_name+'''
+instance_name: '''+params.instance_name+'''
 artifact_version: '''+artifact_version+'''
 dev_instance_count: '''+dev_instance_count+'''
 test_instance_count: '''+test_instance_count+'''
