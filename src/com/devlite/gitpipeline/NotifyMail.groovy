@@ -12,18 +12,18 @@ class NotifyMail implements Serializable {
       this.params = params
       this.currentBuild=currentBuild
   }
-  def sendMail(){
+  def sendMail(dev_instance_ENDURL){
   def splitgiturl=params.Gitcodeurl.split("/")
   def repo=splitgiturl[4].split(".")
   def gitreponame=repo[1]
  steps.echo gitreponame
-   steps.emailext subject: 'The HelloWorld App - Build Status: $BUILD_DISPLAY_NAME has Failed' , 
+   steps.emailext subject: 'The HelloWorld App - Build Status: $BUILD_DISPLAY_NAME has Successful' , 
    body: '''
     Hi All,
   
-        The Current Build BUILD_DISPLAY_NAME is Failed.
+        The Current Build BUILD_DISPLAY_NAME is Successful.
         Please Find  the attached Build Logs: BUILD_URL
-
+        DEv URL = ''' +  dev_instance_ENDURL + '''
         Please find the input parameter values:
         --------------
 	      instance_name   = '''+params.instance_name+'''
