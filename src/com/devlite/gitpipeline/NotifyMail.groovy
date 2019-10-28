@@ -42,7 +42,5 @@ class NotifyMail implements Serializable {
                         to: params.MAILIDs,
                         attachLog:'true'
                         //attachmentsPattern:'*.pdf'
-               
-  
-  
+  } 
  }
