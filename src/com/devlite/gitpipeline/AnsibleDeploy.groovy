@@ -69,7 +69,7 @@ class AnsibleDeploy implements Serializable {
 	  pomartifactId: """+pomartifactId + """
 	  """
 	  steps.echo Parameters 
-	  steps.ansibleTower async: false, credential: '', extraVars: 
+	 def ansible_output=steps.ansibleTower async: false, credential: '', extraVars: 
 '''
 instance_name: '''+instance_name+'''
 artifact_version: '''+artifact_version+'''
@@ -79,6 +79,12 @@ prod_instance_count: '''+prod_instance_count+'''
 pomgroupId: '''+pomgroupId+'''
 pomartifactId: '''+pomartifactId+'''
 ''', importTowerLogs: true, importWorkflowChildLogs: true, inventory: '', jobTags: '', jobTemplate: 'DEVLITE_Workflow_Cloudbees', jobType: 'run', limit: '', removeColor: true, skipJobTags: '', templateType: 'workflow', throwExceptionWhenFail: true, towerServer: 'AnsibleTower', verbose: true
-	//step.sh '''echo "https://github.com/wipropoc/helloworld.git" | awk -F "/" '{print $NF}' | awk -F "." '{print $1}'
+	steps.dev_instance_ENDURL=ansible_output.dev_instance_ENDURL
+	steps.test_instance_ENDURL=ansible_output.test_instance_ENDURL
+	steps.prod_instance_ENDURL=ansible_output.prod_instance_ENDURL
+	steps.echo "DEv URL" + steps.dev_instance_ENDURL
+	
+	
+	  //step.sh '''echo "https://github.com/wipropoc/helloworld.git" | awk -F "/" '{print $NF}' | awk -F "." '{print $1}'
      }
 }
