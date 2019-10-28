@@ -40,7 +40,7 @@ class AnsibleDeploy implements Serializable {
 	  def project = new XmlParser().parseText(file.toString()) 
 	  def dev_instance_count=params.DevInstances
 	  def test_instance_count=params.TestInstances
-	  def post_instance_count=params.Prodnstances
+	  def prod_instance_count=params.Prodnstances
 	  def instance_name=params.instance_name
           def artifact_version=project.version.text()
 	  def pomartifactId=project.artifactId.text().toString()
