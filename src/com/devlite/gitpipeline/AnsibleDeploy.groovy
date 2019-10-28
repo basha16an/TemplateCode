@@ -12,13 +12,13 @@ class AnsibleDeploy implements Serializable {
   }
 	
   
-  def deployusingAnsible(buildEngine){
+  def deployusingAnsible(buildEngine,dev_instance_ENDURL){
   for ( int i=0;i<buildEngine.length;i++)
     {
       if ( buildEngine[i].model.id.contains("Auxiliary_Build_Maven")){
 	  	steps.echo "Maven Build Model"
 		   try{
-			  	performAnsibleDeployment(buildEngine[i])
+			  	performAnsibleDeployment(buildEngine[i],dev_instance_ENDURL)
 		   } catch(Exception err) {
 			  	throw err;
 		  }
