@@ -40,9 +40,9 @@ class AnsibleDeploy implements Serializable {
 	  def project = new XmlParser().parseText(file.toString()) 
 
 	  
-          def artifact_version=project.version.value
-	  def pomartifactId=project.artifactId.value.toString()
-	  def pomgroupId=project.groupId.value.toString()
+          def artifact_version=project.version.text()
+	  def pomartifactId=project.artifactId.text().toString()
+	  def pomgroupId=project.groupId.text().toString()
 	  
 	  steps.echo "Maven Pom version: "+artifact_version
 	  steps.echo "Maven Group ID: "+pomgroupId
