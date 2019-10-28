@@ -34,8 +34,8 @@ class AnsibleDeploy implements Serializable {
      	}
 	  
 	  steps.echo params.instance_name
-	  //def file = steps.readFile(workspace +"/pom.xml")
-	 def file= new File(workspace +"/pom.xml").text
+	  def file = steps.readFile(workspace +"/pom.xml")
+	  /*
           def project = new XmlSlurper().parseText(file)
           def artifact_version=project.version.toString()
 	  def pomartifactId=project.artifactId.toString()
@@ -53,7 +53,8 @@ class AnsibleDeploy implements Serializable {
 	  pomartifactId: """+pomartifactId + """
 	  """
 	  steps.echo Parameters 
-	  steps.echo "hello"
+	  steps.echo "hello" */
+	  
 	  	  steps.ansibleTower async: false, credential: '', extraVars: '', importTowerLogs: true, importWorkflowChildLogs: true, inventory: '', jobTags: '', jobTemplate: 'DEVLITE_Application_Deploy', jobType: 'run', limit: '', removeColor: false, skipJobTags: '', templateType: 'job', throwExceptionWhenFail: true, towerServer: 'AnsibleTower', verbose: true
 	 
 	//step.sh '''echo "https://github.com/wipropoc/helloworld.git" | awk -F "/" '{print $NF}' | awk -F "." '{print $1}'
