@@ -34,7 +34,7 @@ class AnsibleDeploy implements Serializable {
 	  
 	  steps.echo params.instance_name
 	  def file = steps.readFile(workspace +"/pom.xml")
-        /*  def project = new XmlSlurper().parseText(file)
+         def project = new XmlSlurper().parseText(file)
           def artifact_version=project.version.toString()
 	  def pomartifactId=project.artifactId.toString()
 	  def pomgroupId=project.groupId //toString()
@@ -52,15 +52,8 @@ class AnsibleDeploy implements Serializable {
 	  """
 	  steps.echo Parameters 
 	  steps.echo "hello"
-	  */
-	  try {
-		  steps.ansibleTower async: false, credential: '', extraVars: '', importTowerLogs: true, importWorkflowChildLogs: true, inventory: '', jobTags: '', jobTemplate: 'DEVLITE_Application_Deploy', jobType: 'run', limit: '', removeColor: false, skipJobTags: '', templateType: 'job', throwExceptionWhenFail: true, towerServer: 'AnsibleTower', verbose: true
-	} catch (err) {
-            steps.echo "ERROR: Please Check the Ansible Tower piipeline Coonfiuration and input parameter values"
-            throw err		  
-
-        }
-	
+	  	  steps.ansibleTower async: false, credential: '', extraVars: '', importTowerLogs: true, importWorkflowChildLogs: true, inventory: '', jobTags: '', jobTemplate: 'DEVLITE_Application_Deploy', jobType: 'run', limit: '', removeColor: false, skipJobTags: '', templateType: 'job', throwExceptionWhenFail: true, towerServer: 'AnsibleTower', verbose: true
+	 
 	//step.sh '''echo "https://github.com/wipropoc/helloworld.git" | awk -F "/" '{print $NF}' | awk -F "." '{print $1}'
      }
 }
