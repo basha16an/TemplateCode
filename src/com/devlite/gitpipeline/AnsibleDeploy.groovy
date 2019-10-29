@@ -18,16 +18,17 @@ class AnsibleDeploy implements Serializable {
       if ( buildEngine[i].model.id.contains("Auxiliary_Build_Maven")){
 	  	steps.echo "Maven Build Model"
 		   try{
-			  	performAnsibleDeployment(buildEngine[i],dev_instance_ENDURL,test_instance_ENDURL,prod_instance_ENDURL)
+			  ( dev_instance_ENDURL,test_instance_ENDURL,prod_instance_ENDURL)=performAnsibleDeployment(buildEngine[i],dev_instance_ENDURL,test_instance_ENDURL,prod_instance_ENDURL)
 		   } catch(Exception err) {
 			  	throw err;
 		  }
 	  } 
      }
+	  retun [dev_instance_ENDURL,test_instance_ENDURL,prod_instance_ENDURL]
     
   }
   
-  def performAnsibleDeployment(mavenBuildEngine,dev_instance_ENDURL){
+  def performAnsibleDeployment(mavenBuildEngine,dev_instance_ENDURL,test_instance_ENDURL,prod_instance_ENDURL){
      	def workspace=steps.pwd();
   	 if(mavenBuildEngine.buildFile==null || mavenBuildEngine.buildFile==""){
          steps.error "ERROR"
