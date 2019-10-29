@@ -15,9 +15,9 @@ class NotifyMail implements Serializable {
   def sendMail(dev_instance_ENDURL,BuildStatus){
 	  steps.echo params.Gitcodeurl 
   def splitgiturl=params.Gitcodeurl.split("/")
-	  steps.echo splitgiturl
+	  steps.echo splitgiturl.toString();
   def repo=splitgiturl[4].split(".")
-	  steps.echo repo
+	  steps.echo repo.toString()
   def gitreponame=repo[1]
  steps.echo gitreponame
    steps.emailext subject: 'The HelloWorld App - Build Status: $BUILD_DISPLAY_NAME is ' + BuildStatus , 
