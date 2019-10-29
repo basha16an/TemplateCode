@@ -3,6 +3,7 @@ import com.devlite.gitpipeline.*;
 class FortifyScan implements Serializable { 
 
   def steps;
+	def params;
   FortifyScan(steps,params) {
       this.steps = steps
 	  this.params=params
