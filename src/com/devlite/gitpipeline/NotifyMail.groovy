@@ -26,8 +26,10 @@ class NotifyMail implements Serializable {
     Hi All,
   
         The Current Build $BUILD_DISPLAY_NAME is '''+ BuildStatus + '''
-	BUILD URL : $BUILD_URL
-        DEV URL = ''' +  dev_instance_ENDURL + '''
+	BUILD URL= $BUILD_URL
+        DEV URL  = ''' +  dev_instance_ENDURL + '''
+	TEST URL = ''' + test_instance_ENDURL + '''
+	PROD URL = ''' + prod_instance_ENDURL + '''
 	Please Find  the attached Build Log
         Please find the input parameter values:
         --------------
