@@ -16,7 +16,7 @@ class NotifyMail implements Serializable {
 	  steps.echo params.Gitcodeurl 
   def splitgiturl=params.Gitcodeurl.split("/")
 	  steps.echo splitgiturl.toString();
-  def repo=splitgiturl[4].split(".")
+  def repo=splitgiturl[4].split("\.")
 	  steps.echo repo.toString()
   def gitreponame=repo[1]
  steps.echo gitreponame
