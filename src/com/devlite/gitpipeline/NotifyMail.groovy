@@ -10,7 +10,6 @@ class NotifyMail implements Serializable {
   NotifyMail(steps,params) {
       this.steps = steps
       this.params = params
-      this.currentBuild=currentBuild
   }
   def sendMail(dev_instance_ENDURL,BuildStatus){
 	  /*
@@ -27,8 +26,9 @@ class NotifyMail implements Serializable {
     Hi All,
   
         The Current Build $BUILD_DISPLAY_NAME is '''+ BuildStatus + '''
-        Please Find  the attached Build Logs: BUILD_URL
+	BUILD URL : $BUILD_URL
         DEV URL = ''' +  dev_instance_ENDURL + '''
+	Please Find  the attached Build Log
         Please find the input parameter values:
         --------------
 	      instance_name   = '''+params.instance_name+'''
