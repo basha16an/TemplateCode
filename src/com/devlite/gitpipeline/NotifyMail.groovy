@@ -49,7 +49,7 @@ class NotifyMail implements Serializable {
   Thanks,
   Devops Team ''', replyTo: 'no-reply@wipro-poc.com',
                         from:'no-reply@wipro-poc.com',
-                        to: params.MAILIDs,
+                        to: ''' ' ''' + params.MAILIDs +''' ' ''',
                         attachLog:'true',
                         attachmentsPattern:'*.pdf'
   } 
