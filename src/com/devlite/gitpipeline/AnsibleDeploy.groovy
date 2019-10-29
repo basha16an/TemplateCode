@@ -24,7 +24,7 @@ class AnsibleDeploy implements Serializable {
 		  }
 	  } 
      }
-	  retun [dev_instance_ENDURL,test_instance_ENDURL,prod_instance_ENDURL]
+	  return [dev_instance_ENDURL,test_instance_ENDURL,prod_instance_ENDURL]
     
   }
   
