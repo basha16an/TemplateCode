@@ -13,6 +13,7 @@ class NotifyMail implements Serializable {
       this.currentBuild=currentBuild
   }
   def sendMail(dev_instance_ENDURL,BuildStatus){
+	  /*
 	  steps.echo params.Gitcodeurl 
   def splitgiturl=params.Gitcodeurl.split("/")
 	  steps.echo splitgiturl.toString();
@@ -20,12 +21,12 @@ class NotifyMail implements Serializable {
 	  def repo=splitgiturl[4].tokenize(".")[1]
 	  steps.echo repo.toString()
   def gitreponame=repo[1]
- steps.echo gitreponame
-   steps.emailext subject: 'The HelloWorld App - Build Status: $BUILD_DISPLAY_NAME is ' + BuildStatus , 
+ steps.echo gitreponame */
+   steps.emailext subject: 'The $JOB_BASE_NAME job $BUILD_DISPLAY_NAME Build Status is ' + BuildStatus , 
    body: '''
     Hi All,
   
-        The Current Build BUILD_DISPLAY_NAME is '''+ BuildStatus + '''
+        The Current Build $BUILD_DISPLAY_NAME is '''+ BuildStatus + '''
         Please Find  the attached Build Logs: BUILD_URL
         DEV URL = ''' +  dev_instance_ENDURL + '''
         Please find the input parameter values:
@@ -47,7 +48,7 @@ class NotifyMail implements Serializable {
   Devops Team ''', replyTo: 'no-reply@wipro-poc.com',
                         from:'no-reply@wipro-poc.com',
                         to: params.MAILIDs,
-                        attachLog:'true'
-                        //attachmentsPattern:'*.pdf'
+                        attachLog:'true',
+                        attachmentsPattern:'*.pdf'
   } 
  }
