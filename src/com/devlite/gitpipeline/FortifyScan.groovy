@@ -27,9 +27,7 @@ class FortifyScan implements Serializable {
 	 def repo=splitgiturl[4].tokenize(".")[0]
 
    def workspace=steps.pwd();
-  def fprScanFilename=mavenBuildEngine.repoName+".fpr"
- def fprScanFilename=repo+".fpr"
-	  
+  def fprScanFilename=repo+".fpr"  
   def pdfScanFilename=repo+"_fortify_securityscan_report.pdf"
       if(mavenBuildEngine.buildFile==null || mavenBuildEngine.buildFile==""){
          steps.error "ERROR"
