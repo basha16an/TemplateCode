@@ -42,7 +42,7 @@ class AnsibleDeploy implements Serializable {
 	  def dev_instance_count=params.DevInstances
 	  
 	  def test_instance_count=params.TestInstances
-	  def prod_instance_count=params.ProdnInstances
+	  def prod_instance_count=params.ProdInstances
 	  if (dev_instance_count.toString().equals("null")){
 	  	dev_instance_count=0
 	  }
