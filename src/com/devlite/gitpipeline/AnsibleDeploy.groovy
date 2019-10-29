@@ -12,13 +12,13 @@ class AnsibleDeploy implements Serializable {
   }
 	
   
-  def deployusingAnsible(buildEngine,dev_instance_ENDURL){
+  def deployusingAnsible(buildEngine,dev_instance_ENDURL,test_instance_ENDURL,prod_instance_ENDURL){
   for ( int i=0;i<buildEngine.length;i++)
     {
       if ( buildEngine[i].model.id.contains("Auxiliary_Build_Maven")){
 	  	steps.echo "Maven Build Model"
 		   try{
-			  	performAnsibleDeployment(buildEngine[i],dev_instance_ENDURL)
+			  	performAnsibleDeployment(buildEngine[i],dev_instance_ENDURL,test_instance_ENDURL,prod_instance_ENDURL)
 		   } catch(Exception err) {
 			  	throw err;
 		  }
@@ -80,12 +80,14 @@ pomgroupId: '''+pomgroupId+'''
 pomartifactId: '''+pomartifactId+'''
 ''', importTowerLogs: true, importWorkflowChildLogs: true, inventory: '', jobTags: '', jobTemplate: 'DEVLITE_Workflow_Cloudbees', jobType: 'run', limit: '', removeColor: true, skipJobTags: '', templateType: 'workflow', throwExceptionWhenFail: true, towerServer: 'AnsibleTower', verbose: true
 	dev_instance_ENDURL=ansible_output.dev_instance_ENDURL
-	/*env.test_instance_ENDURL=ansible_output.test_instance_ENDURL
-	env.prod_instance_ENDURL=ansible_output.prod_instance_ENDURL
+	test_instance_ENDURL=ansible_output.test_instance_ENDURL
+	prod_instance_ENDURL=ansible_output.prod_instance_ENDURL
 	
-	steps.echo "TEST URL:" + env.test_instance_ENDURL
-	steps.echo "PROD URL:" + env.prod_instance_ENDURL */
-	  steps.echo "DEV URL :" + dev_instance_ENDURL
+	   steps.echo "DEV URL :" + dev_instance_ENDURL
+	steps.echo "TEST URL:" + test_instance_ENDURL
+	steps.echo "PROD URL:" + prod_instance_ENDURL 
+	 
+	  return [ dev_instance_ENDURL,test_instance_ENDURL,prod_instance_ENDURL ]
 	 
 	
 	
