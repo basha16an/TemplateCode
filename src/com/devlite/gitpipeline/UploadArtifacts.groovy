@@ -8,7 +8,7 @@ class UploadArtifacts implements Serializable{
       this.steps=steps;
   }
   def uploadBuildArtifacts(buildEngine,URL){
-  
+  steps.echo '**********Upload artifacts to JFrog artifactory Started**********'
     for(int i=0;i<buildEngine.length;i++){
       if(buildEngine[i].model.id.contains("Auxiliary_Build_Maven")){
       try {
@@ -19,6 +19,7 @@ class UploadArtifacts implements Serializable{
           
       }
     }
+    steps.echo '**********Upload artifacts to JFrog artifactory Completed**********'
   }
 
   def uploadMavenBuildArtifacts(mavenBuildEngine,URL){
