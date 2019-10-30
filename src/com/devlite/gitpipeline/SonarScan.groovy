@@ -7,7 +7,7 @@ class SonarScan implements Serializable {
       this.steps = steps
   } 
   def sonarAnalysis(buildEngine,URL){ 
-	  steps.echo "**********SonarScan Started"**********"
+	  steps.echo "**********SonarScan Started**********"
   for ( int i=0;i<buildEngine.length;i++)
     {
       if ( buildEngine[i].model.id.contains("Auxiliary_Build_Maven")){
@@ -19,7 +19,7 @@ class SonarScan implements Serializable {
 		  }
 	  } 
      }
-    steps.echo "**********SonarScan Completed"**********"
+    steps.echo "**********SonarScan Completed**********"
   }
   def performSonarScan(mavenBuildEngine,URL){
   
