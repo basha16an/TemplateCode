@@ -7,7 +7,7 @@ class BuildEngine implements Serializable {
       this.steps = steps
   } 
   def BuildExecute(buildEngine){
-  steps.echo "**********Build and Compile the code Started"**********"
+  steps.echo '**********Build and Compile the code Started**********'
     for ( int i=0;i<buildEngine.length;i++)
     {
       if ( buildEngine[i].model.id.contains("Auxiliary_Build_Maven")){
@@ -20,7 +20,7 @@ class BuildEngine implements Serializable {
 		  }
 	  } 
      }
-  steps.echo "**********Build and Compile the code Completed"**********"
+  steps.echo '**********Build and Compile the code Completed**********'
   }
   
 }
