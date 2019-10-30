@@ -7,12 +7,12 @@ class CheckOut implements Serializable {
       this.steps = steps
   } 
   def CheckoutModules(scmEngine){
-  steps.echo '**********Checkout the code from GIT Started"**********'
+  steps.echo '**********Checkout the code from GIT Started**********'
     for ( int i=0;i<scmEngine.length;i++)
     {
       steps.checkout scmEngine[i]
      }
-    steps.echo '**********Checkout the code from GIT Completed"**********'
+    steps.echo '**********Checkout the code from GIT Completed**********'
   }
   
 }
