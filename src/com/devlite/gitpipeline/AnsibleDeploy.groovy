@@ -72,7 +72,7 @@ class AnsibleDeploy implements Serializable {
 	  pomartifactId: """+pomartifactId + """
 	  """
 	  steps.echo Parameters 
-	 def ansible_output=steps.script.ansibleTower async: false, credential: '', extraVars: 
+	 def ansible_output=steps.ansibleTower async: false, credential: '', extraVars: 
 '''
 instance_name: '''+instance_name+'''
 artifact_version: '''+artifact_version+'''
