@@ -12,7 +12,7 @@ class NotifyMail implements Serializable {
       this.params = params
   }
   def sendMail(BuildStatus,dev_instance_ENDURL,test_instance_ENDURL,prod_instance_ENDURL){
-	  
+	  steps.echo '**********Sending the mail Started**********'
 	  def MAILID=params.MAILIDs
 	  /*
 	  steps.echo params.Gitcodeurl 
@@ -54,5 +54,6 @@ class NotifyMail implements Serializable {
                         to: MAILID ,
                         attachLog:'true',
                         attachmentsPattern:'*.pdf'
+  steps.echo '**********Sending the mail Completed**********'
   } 
  }
