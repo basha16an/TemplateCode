@@ -11,7 +11,9 @@ class NotifyMail implements Serializable {
       this.steps = steps
       this.params = params
   }
-  def sendMail(BuildStatus,dev_instance_ENDURL,test_instance_ENDURL,prod_instance_ENDURL ){
+  def sendMail(BuildStatus,dev_instance_ENDURL,test_instance_ENDURL,prod_instance_ENDURL){
+	  
+	  def MAILID=params.MAILIDs
 	  /*
 	  steps.echo params.Gitcodeurl 
   def splitgiturl=params.Gitcodeurl.split("/")
@@ -49,7 +51,7 @@ class NotifyMail implements Serializable {
   Thanks,
   Devops Team ''', replyTo: 'no-reply@wipro-poc.com',
                         from:'no-reply@wipro-poc.com',
-                        to: ''' ' ''' + params.MAILIDs +''' ' ''',
+                        to: MAILID ,
                         attachLog:'true',
                         attachmentsPattern:'*.pdf'
   } 
