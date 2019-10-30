@@ -11,7 +11,7 @@ class NotifyMail implements Serializable {
       this.steps = steps
       this.params = params
   }
-  def sendMail(dev_instance_ENDURL,BuildStatus){
+  def sendMail(BuildStatus,dev_instance_ENDURL,test_instance_ENDURL,prod_instance_ENDURL ){
 	  /*
 	  steps.echo params.Gitcodeurl 
   def splitgiturl=params.Gitcodeurl.split("/")
