@@ -13,6 +13,7 @@ class AnsibleDeploy implements Serializable {
 	
   
   def deployusingAnsible(buildEngine,dev_instance_ENDURL,test_instance_ENDURL,prod_instance_ENDURL){
+ steps.echo '**********Provision Instance and Deploy application Started**********'
   for ( int i=0;i<buildEngine.length;i++)
     {
       if ( buildEngine[i].model.id.contains("Auxiliary_Build_Maven")){
@@ -24,6 +25,7 @@ class AnsibleDeploy implements Serializable {
 		  }
 	  } 
      }
+	  steps.echo '**********Provision Instance and Deploy application Completed**********'
 	  return [dev_instance_ENDURL,test_instance_ENDURL,prod_instance_ENDURL]
     
   }
