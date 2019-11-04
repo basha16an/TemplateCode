@@ -31,11 +31,22 @@ class BuildDocker implements Serializable {
     def pomgroupId=project.groupId.text().toString()
     def registry = "devlite"
     def registryCredential = 'dockerhub'
-    def repositoryName=registry+"/"+pomgroupId+":"+artifact_version
+    def repositoryName=registry+"/"+pomgroupId   // +":"+artifact_version
+	  
+	  steps.dockerBuildAndPublish {
+	  repositoryName(repositoryName)
+            tag(artifact_version)
+            registryCredentials(registryCredential)
+            forcePull(false)
+            createFingerprints(false)
+            skipDecorate()
+	  }
+	  
+	  /*
     dockerApacheImage=steps.docker.build repositoryName
     steps.docker.withRegistry( '', registryCredential ) {
                          steps.dockerApacheImage.push()
                          }
-    steps.sh ''' docker rmi -f '''+repositoryName+ ''' '''
+    steps.sh ''' docker rmi -f '''+repositoryName+ ''' ''' */
     }
 }
