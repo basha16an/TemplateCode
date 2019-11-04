@@ -39,6 +39,6 @@ def docker
     docker.withRegistry( '', registryCredential ) {
                          dockerApacheImage.push()
                          }
-    steps.sh ''' docker rmi -f '''+repositoryName+ ''' ''' */
+    steps.sh ''' docker rmi -f '''+repositoryName+ ''' ''' 
     }
 }
