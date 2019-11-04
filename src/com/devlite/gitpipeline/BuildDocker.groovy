@@ -32,11 +32,11 @@ class BuildDocker implements Serializable {
     def file = steps.readFile(workspace +"/pom.xml")
     def project = new XmlParser().parseText(file.toString()) 
     def artifact_version=project.version.text()
-    def pomartifactId=project.atifactId.text().toString()
+    def pomartifactId=project.artifactId.text().toString()
     def registry = "devlite"
     def registryCredential = 'dockerhub'
     def repositoryName=registry+"/"+pomartifactId+":"+artifact_version	  
-    def   dockerApacheImage=docker.build repositoryName
+    def   dockerApacheImage=docker.build (repositoryName)
     docker.withRegistry( '', registryCredential ) {
                          dockerApacheImage.push()
                          }
