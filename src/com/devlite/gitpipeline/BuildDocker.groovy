@@ -31,10 +31,10 @@ def docker
     def file = steps.readFile(workspace +"/pom.xml")
     def project = new XmlParser().parseText(file.toString()) 
     def artifact_version=project.version.text()
-    def pomgroupId=project.groupId.text().toString()
+    def pomartifactId=project.atifactId.text().toString()
     def registry = "devlite"
     def registryCredential = 'dockerhub'
-    def repositoryName=registry+"/"+pomgroupId   // +":"+artifact_version	  
+    def repositoryName=registry+"/"+pomartifactId+":"+artifact_version	  
     def   dockerApacheImage=docker.build repositoryName
     docker.withRegistry( '', registryCredential ) {
                          dockerApacheImage.push()
