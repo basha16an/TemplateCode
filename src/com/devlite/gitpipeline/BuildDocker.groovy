@@ -4,10 +4,9 @@ import groovy.util.XmlParser;
 class BuildDocker implements Serializable { 
 
   def steps;
-def docker
-  BuildDocker(steps,docker) {
+  BuildDocker(steps) {
       this.steps = steps
-	  this.docker=docker
+	  
   } 
   def buildDockerImage(buildEngine){
   steps.echo '**********Build and Compile the code Started**********'
