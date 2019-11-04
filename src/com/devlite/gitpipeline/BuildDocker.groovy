@@ -1,5 +1,6 @@
 package com.devlite.gitpipeline;
 import com.devlite.gitpipeline.*;
+import groovy.util.XmlParser;
 class BuildDocker implements Serializable { 
 
   def steps;
@@ -22,11 +23,13 @@ class BuildDocker implements Serializable {
   steps.echo '**********Build and Compile the code Completed**********'
   }
   def buildMavenDockerImage(buildEngine){
-	  def workspace=steps.pwd();
+	  
+    def workspace=steps.pwd();
     def file = steps.readFile(workspace +"/pom.xml")
+    def project = new XmlParser().parseText(file.toString()) 
     def artifact_version=project.version.text()
-	  def project = new XmlParser().parseText(file.toString()) 
-	  def pomgroupId=project.groupId.text().toString()
+    def project = new XmlParser().parseText(file.toString()) 
+    def pomgroupId=project.groupId.text().toString()
     def registry = "devlite"
     def registryCredential = 'dockerhub'
     def repositoryName=reistry+"/"+pomgroupId+":"+artifact_version
