@@ -25,6 +25,7 @@ class BuildDocker implements Serializable {
   def buildMavenDockerImage(buildEngine){
 	  
     def workspace=steps.pwd();
+	  /*
     def file = steps.readFile(workspace +"/pom.xml")
     def project = new XmlParser().parseText(file.toString()) 
     def artifact_version=project.version.text()
@@ -42,7 +43,7 @@ class BuildDocker implements Serializable {
             skipDecorate()
 	  }
 	  
-	  /*
+	  
     dockerApacheImage=steps.docker.build repositoryName
     steps.docker.withRegistry( '', registryCredential ) {
                          steps.dockerApacheImage.push()
