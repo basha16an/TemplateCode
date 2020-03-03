@@ -6,7 +6,7 @@ class BuildDocker implements Serializable {
   def steps;
 	//def docker;
   BuildDocker(steps) {
-      this.steps = steps-
+      this.steps = steps
 	  //this.docker=docker
 	  
   } 
