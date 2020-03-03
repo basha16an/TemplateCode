@@ -10,14 +10,14 @@ class BuildDocker implements Serializable {
 	  //this.docker=docker
 	  
   } 
-  def buildDockerImage(buildEngine){
+  def buildDockerImage(buildEngine,dockerbuild){
   steps.echo '**********Build and Compile the code Started**********'
     for ( int i=0;i<buildEngine.length;i++)
     {
       if ( buildEngine[i].model.id.contains("Auxiliary_Build_Maven")){
-	  	steps.echo "Maven Build Model"
+	  	steps.echo "Maven Docker build Model"
 		try{
-		 		buildMavenDockerImage(buildEngine[i])
+		 		buildMavenDockerImage(buildEngine[i],dockerbuild)
 		  } catch(Exception err) {
 			  	throw err;
 		  }
@@ -25,7 +25,7 @@ class BuildDocker implements Serializable {
      }
   steps.echo '**********Build and Compile the code Completed**********'
   }
-  def buildMavenDockerImage(MavenbuildEngine){
+  def buildMavenDockerImage(MavenbuildEngine,dockerbuild){
 	  
     def workspace=steps.pwd();
 	  
@@ -36,7 +36,7 @@ class BuildDocker implements Serializable {
     def registry = "devlite"
     def registryCredential = 'dockerhub'
     def repositoryName=registry + "/" + pomartifactId + ":" + artifact_version
-    def dockerApacheImage=steps.docker.build '''+repositoryName+'''
+    def dockerApacheImage=dokcerbuild '''+repositoryName+'''
     steps.docker.withRegistry( '', registryCredential ) {
                          dockerApacheImage.push()
                          }
