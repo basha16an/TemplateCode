@@ -39,7 +39,7 @@ class BuildDocker implements Serializable {
 	 // artifact_version
     def dockerApacheImage=dockerbuild.build(repositoryName)
    // dockerbuild.withDockerRegistry( '', registryCredential ) {
-                         dockerbuild.build(repositoryName).push()
+                    //     dockerbuild.build(repositoryName).push()
                   //       }
    // steps.sh ''' /usr/bin/docker rmi -f '''+repositoryName+ ''' ''' 
     }
