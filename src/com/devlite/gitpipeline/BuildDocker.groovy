@@ -37,17 +37,10 @@ class BuildDocker implements Serializable {
     def registryCredential = 'dockerhub'
     def repositoryName=registry + "/" + pomartifactId + ":" + 1.2 
 	 // artifact_version
-	  steps.sh '''
-	  echo $PATH
 	  
-	  which docker
-	  echo hi
-	 ls -lrt | grep docker
-	 service docker status
-	  '''
    // def dockerApacheImage=dockerbuild.build(repositoryName)
    // dockerbuild.withDockerRegistry( '', registryCredential ) {
-                    //     dockerbuild.build(repositoryName).push()
+                        dockerbuild.build(repositoryName).push()
                   //       }
    // steps.sh ''' /usr/bin/docker rmi -f '''+repositoryName+ ''' ''' 
     }
