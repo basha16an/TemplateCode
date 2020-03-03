@@ -4,13 +4,13 @@ import groovy.util.XmlParser;
 class BuildDocker implements Serializable { 
 
   def steps;
-	def docker;
-  BuildDocker(steps,docker) {
+	//def docker;
+  BuildDocker(steps) {
       this.steps = steps
-	  this.docker=docker
+	  //this.docker=docker
 	  
   } 
-  def buildDockerImage(buildEngine){
+  def buildDockerImage(buildEngine,docker){
   steps.echo '**********Build and Compile the code Started**********'
     for ( int i=0;i<buildEngine.length;i++)
     {
@@ -25,7 +25,7 @@ class BuildDocker implements Serializable {
      }
   steps.echo '**********Build and Compile the code Completed**********'
   }
-  def buildMavenDockerImage(buildEngine){
+  def buildMavenDockerImage(MavenbuildEngine){
 	  
     def workspace=steps.pwd();
 	  
@@ -36,7 +36,7 @@ class BuildDocker implements Serializable {
     def registry = "devlite"
     def registryCredential = 'dockerhub'
     def repositoryName=registry + "/" + pomartifactId + ":" + artifact_version
-    def dockerApacheImage=docker.build('devlite')
+    def dockerApacheImage=steps.docker.build('devlite')
     docker.withRegistry( '', registryCredential ) {
                          dockerApacheImage.push()
                          }
