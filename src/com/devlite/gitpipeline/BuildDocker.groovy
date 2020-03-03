@@ -35,8 +35,8 @@ class BuildDocker implements Serializable {
     def pomartifactId=project.artifactId.text().toString()
     def registry = "devlite".toString()
     def registryCredential = 'dockerhub'
-    def repositoryName=registry + "/" + pomartifactId + ":" + 1.2 //
-	  artifact_version
+    def repositoryName=registry + "/" + pomartifactId + ":" + 1.2 
+	 // artifact_version
     def dockerApacheImage=dockerbuild.build(repositoryName)
     dockerbuild.withRegistry( '', registryCredential ) {
                          dockerApacheImage.push()
