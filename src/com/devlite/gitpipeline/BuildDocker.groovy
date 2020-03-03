@@ -10,7 +10,7 @@ class BuildDocker implements Serializable {
 	  //this.docker=docker
 	  
   } 
-  def buildDockerImage(buildEngine,docker){
+  def buildDockerImage(buildEngine){
   steps.echo '**********Build and Compile the code Started**********'
     for ( int i=0;i<buildEngine.length;i++)
     {
