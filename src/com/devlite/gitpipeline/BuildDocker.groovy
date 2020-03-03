@@ -39,10 +39,11 @@ class BuildDocker implements Serializable {
 	 // artifact_version
 	  steps.sh '''
 	  echo $PATH
+	  
 	  which docker
 	  echo hi
 	 ls -lrt | grep docker
-	 
+	 service docker status
 	  '''
    // def dockerApacheImage=dockerbuild.build(repositoryName)
    // dockerbuild.withDockerRegistry( '', registryCredential ) {
